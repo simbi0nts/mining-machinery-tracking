@@ -1,2 +1,5 @@
 Django==1.10.3
 gunicorn==19.6.0
+psycopg2==2.6.2
+unity-lens-photos==1.0
+virtualenv==15.0.1
