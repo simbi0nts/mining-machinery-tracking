@@ -1,1 +1,1 @@
-web: python manage.py runserver 127.0.0.1:5432
+web: gunicorn MiningMachineryTracking.wsgi --log-file -
