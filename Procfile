@@ -1,1 +1,1 @@
-web:gunicornX
+web: gunicornX
