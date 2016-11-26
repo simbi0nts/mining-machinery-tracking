@@ -25,7 +25,8 @@ SECRET_KEY = '2ymp*a79g@$jfgrnp$@d_#f=pb@xri+=u_ao5zv0vc)&0k!vqh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mining-machinery-tracking.herokuapp.com']
+ALLOWED_HOSTS = ['mining-machinery-tracking.herokuapp.com',
+                 '127.0.0.1']
 
 
 # Application definition
