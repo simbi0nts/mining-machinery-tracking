@@ -77,10 +77,22 @@ WSGI_APPLICATION = 'MiningMachineryTracking.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mydb',
+        'USER': 'myuser',
+        'PASSWORD': 'asfd1243',
+        'HOST': 'localhost',  # Empty for localhost through domain sockets or
+                              #'127.0.0.1' for localhost through TCP.
+        'PORT': '',           # Set to empty string for default.
     }
 }
+
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 
 # Password validation
