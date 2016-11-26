@@ -83,9 +83,9 @@ DATABASES = {
         'NAME': 'mydb',
         'USER': 'myuser',
         'PASSWORD': 'asfd1243',
-        'HOST': 'localhost',  # Empty for localhost through domain sockets or
+        'HOST': '127.0.0.1',  # Empty for localhost through domain sockets or
                               #'127.0.0.1' for localhost through TCP.
-        'PORT': '',           # Set to empty string for default.
+        'PORT': '5432',           # Set to empty string for default.
     }
 }
 
