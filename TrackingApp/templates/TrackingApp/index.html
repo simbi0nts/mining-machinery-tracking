@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="/home/MiningMachineryTracking/TrackingApp/static/TrackingApp/index.css" />
+</head>
+<body>
+{% load static %}
+
+<form action="." method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Применить" />
+</form>
+
+<table>
+    <caption>
+        Рабочие самосвалы
+    </caption>
+    <tr>
+        <th>Бортовой номер</th>
+        <th>Модель</th>
+        <th>Максимальная грузоподъемность</th>
+        <th>Текущий вес</th>
+        <th>Перегрузка,%</th>
+    </tr>
+    {% for item in query_results %}
+    <tr>
+        <td>{{ item.machine_id }}</td>
+        <td>{{ item.brand_name }}</td>
+        <td>{{ item.brand_name.max_carrying_capacity }}</td>
+        <td>{{ item.current_carrying_load }}</td>
+        <td>{{ item.current_overload }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
