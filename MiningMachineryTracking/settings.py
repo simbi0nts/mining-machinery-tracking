@@ -136,19 +136,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+PROJECT_DIR = os.path.join(PROJECT_ROOT,'../TrackingApp')
 
-STATICFILES_DIRS = (
-    #os.path.normpath(os.path.join(BASE_DIR, '')),
-    #os.path.normpath(os.path.join(BASE_DIR, 'upload')),
-    '/app/TrackingApp/static/',
-    #'/app/MiningMachineryTracking/static/',
-)
-
+STATIC_ROOT = os.path.join(PROJECT_ROOT,'static/')
 STATIC_URL = '/static/'
-STATIC_ROOT = '/app/MiningMachineryTracking/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL.strip("/"))
-#
-##PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-##STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-#
-#STATIC_ROOT = "/home/MiningMachinaryTracking/MiningMachinaryTracking/static/"
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_DIR,'static/'),
+)
