@@ -144,7 +144,7 @@ STATICFILES_DIRS = (
     '/app/MiningMachineryTracking/static/',
 )
 
-STATIC_URL = '/static/'
+STATIC_URL = '/app/TrackingApp/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL.strip("/"))
 #
 ##PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
