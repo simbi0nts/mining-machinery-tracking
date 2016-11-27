@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'gunicorn',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -138,11 +137,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "TrackingApp/static"),
-    #'/var/www/static/',
+    os.path.join(BASE_DIR, "/static/"),
+    '/app/TrackingApp/static/',
+    '/home/MiningMachineryTracking/TrackingApp/static/',
+    'app/TrackingApp/static/',
+    'home/MiningMachineryTracking/TrackingApp/static/',
 ]
 
-STATIC_URL = "/static/"
+STATIC_URL = "/MiningMachinaryTracking/static/"
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')

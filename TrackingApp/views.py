@@ -2,7 +2,6 @@
 
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-
 from .forms import BrandForm
 from .models import CurrentActiveMachines, BrandCharacteristics
 
