@@ -142,9 +142,8 @@ STATICFILES_DIRS = (
     '/app/TrackingApp/static'
 )
 
+STATIC_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-
-#PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 #PROJECT_DIR = os.path.join(PROJECT_ROOT,'../TrackingApp')
 #
 #STATIC_ROOT = os.path.join(PROJECT_ROOT,'static/')
