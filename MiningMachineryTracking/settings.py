@@ -141,10 +141,11 @@ STATICFILES_DIRS = (
     #os.path.normpath(os.path.join(BASE_DIR, '')),
     #os.path.normpath(os.path.join(BASE_DIR, 'upload')),
     '/app/TrackingApp/static/',
-    '/app/MiningMachineryTracking/static/',
+    #'/app/MiningMachineryTracking/static/',
 )
 
-STATIC_URL = '/app/TrackingApp/static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = '/app/MiningMachineryTracking/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL.strip("/"))
 #
 ##PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
