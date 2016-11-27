@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2ymp*a79g@$jfgrnp$@d_#f=pb@xri+=u_ao5zv0vc)&0k!vqh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['mining-machinery-tracking.herokuapp.com',
                  '127.0.0.1',
@@ -136,13 +136,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-PROJECT_DIR = os.path.join(PROJECT_ROOT,'../TrackingApp')
-
-STATIC_ROOT = os.path.join(PROJECT_ROOT,'static/')
-STATIC_URL = '/app/static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_DIR,'static/'),
+    os.path.join(BASE_DIR,'static/'),
+    '/home/MiningMachineryTracking/TrackingApp/static'
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+
+#PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+#PROJECT_DIR = os.path.join(PROJECT_ROOT,'../TrackingApp')
+#
+#STATIC_ROOT = os.path.join(PROJECT_ROOT,'static/')
+#STATIC_URL = '/app/static/'
+#STATICFILES_DIRS = (
+#    os.path.join(PROJECT_DIR,'static/'),
+#)
+#
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
