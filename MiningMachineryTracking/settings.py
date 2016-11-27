@@ -140,10 +140,12 @@ USE_TZ = True
 STATICFILES_DIRS = (
     #os.path.normpath(os.path.join(BASE_DIR, '')),
     #os.path.normpath(os.path.join(BASE_DIR, 'upload')),
+    '/app/TrackingApp/static/',
+    '/app/MiningMachineryTracking/static/',
 )
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR, 'static'))
+#STATIC_ROOT = os.path.join(BASE_DIR, STATIC_URL.strip("/"))
 #
 ##PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 ##STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
