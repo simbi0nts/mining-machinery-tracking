@@ -25,7 +25,7 @@ SECRET_KEY = '2ymp*a79g@$jfgrnp$@d_#f=pb@xri+=u_ao5zv0vc)&0k!vqh'
 
 # TODO: set DEBUG in False
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mining-machinery-tracking.herokuapp.com',
                  '127.0.0.1',
@@ -134,7 +134,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static/'),
-    '/app/TrackingApp/static'
+    #'/app/TrackingApp/static'
 )
 
 STATIC_ROOT = os.path.abspath(os.path.dirname(__file__))
