@@ -4,11 +4,11 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 
 from .forms import BrandForm
-from .models import CurrentActiveMachines
+from .models import CurrentActiveMachines, BrandCharacteristics
 
 def index(request):
 
-    try :
+    try:
         if request.method == 'POST':
             form = BrandForm(request.POST)
             if form.is_valid():
@@ -20,11 +20,23 @@ def index(request):
         else:
             form = BrandForm()
             query_results = CurrentActiveMachines.objects.all().order_by('machine_id')
+        template = loader.get_template('TrackingApp/index.html')
+        context = RequestContext(request, {
+            'query_results': query_results,
+            'form': form,
+        })
+        return HttpResponse(template.render(context))
     except:
-        pass
-    template = loader.get_template('TrackingApp/index.html')
-    context = RequestContext(request, {
-        'query_results': query_results,
-        'form': form,
-    })
-    return HttpResponse(template.render(context))
+        all = BrandCharacteristics(
+            brand_id=1,
+            brand_name="Все",
+            max_carrying_capacity=1,
+        )
+        all.save()
+        query_results = CurrentActiveMachines.objects.all().order_by('machine_id')
+        template = loader.get_template('TrackingApp/index.html')
+        context = RequestContext(request, {
+            'query_results': query_results,
+            'form': form,
+        })
+        return HttpResponse(template.render(context))
