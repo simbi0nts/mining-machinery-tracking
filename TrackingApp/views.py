@@ -28,7 +28,7 @@ def index(request):
         return HttpResponse(template.render(context))
     except:
         all = BrandCharacteristics(
-            brand_id=1,
+            brand_id=0,
             brand_name="Все",
             max_carrying_capacity=1,
         )
