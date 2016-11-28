@@ -10,6 +10,7 @@ HUNDRED_PERCENT = 100
 
 def index(request):
 
+    # TODO: Maybe there is more correct way to define this function in code
     # Adding select option for choosing all active machines from DB
     BrandCharacteristics.objects.get_or_create(
             brand_id=0,

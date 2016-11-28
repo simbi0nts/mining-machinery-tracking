@@ -23,7 +23,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '2ymp*a79g@$jfgrnp$@d_#f=pb@xri+=u_ao5zv0vc)&0k!vqh'
 
-# TODO: set DEBUG in False
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -126,8 +125,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# TODO: solve the problem of losing static files via changing DEBUG option to False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
