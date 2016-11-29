@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding new brand</title>
+    <link rel="stylesheet" type="text/css" href="/static/TrackingApp/index.css" />
+</head>
+<body>
+
+{% load static %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ new_brand_form }}
+    <input type="submit" value="Применить" />
+</form>
+
+</body>
+</html>
