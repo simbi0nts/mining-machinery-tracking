@@ -35,7 +35,6 @@ class NewMachineForm(forms.ModelForm):
         self.fields['machine_id'].empty_label = None
         self.fields['brand_name'].label = mark_safe('<br /><br /><br />Название модели')
         self.fields['brand_name'].empty_label = None
-
         self.fields['current_carrying_load'].label = mark_safe('<br /><br /><br />Текущий перевозимый вес')
         self.fields['current_carrying_load'].empty_label = None
 
