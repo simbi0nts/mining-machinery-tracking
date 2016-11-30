@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41f021e3-188c-4bcd-8b52-1bc448f9a597" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TrackingApp/models.py" afterPath="$PROJECT_DIR$/TrackingApp/models.py" />
-    </list>
+    <list default="true" id="41f021e3-188c-4bcd-8b52-1bc448f9a597" name="Default" comment="" />
     <ignored path="MiningMachineryTracking.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
