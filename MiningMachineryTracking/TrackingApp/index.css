@@ -33,9 +33,6 @@ form {
   display: inline-block;
   text-align: center;
 }
-input {
-    display: block;
-}
 tr:nth-child(odd) {
   background: white;
 }

@@ -9,11 +9,13 @@
 
 {% load static %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ new_brand_form }}
-    <input type="submit" value="Применить" />
-</form>
+<div align="center" id="layer1">
+    <form method="post">
+        {% csrf_token %}
+        {{ new_brand_form }}
+        <input type="submit" value="Применить" />
+    </form>
+</div>
 
 </body>
 </html>

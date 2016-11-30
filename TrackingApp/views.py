@@ -5,6 +5,7 @@ from django.template import RequestContext, loader
 from .forms import BrandForm, NewMachineForm, NewBrandForm
 from .models import CurrentActiveMachines, BrandCharacteristics
 from django.db.models import F
+from django.shortcuts import render
 
 HUNDRED_PERCENT = 100
 
@@ -39,7 +40,6 @@ def index(request):
 
 def insert_new_machine(request):
 
-    template = loader.get_template('TrackingApp/add_new_machine.html')
     if request.method == 'POST':
         new_machine_form = NewMachineForm(request.POST)
         if new_machine_form.is_valid():
@@ -54,15 +54,11 @@ def insert_new_machine(request):
             return HttpResponseRedirect('/')
     else:
         new_machine_form = NewMachineForm()
-    context = RequestContext(request, {
-        'new_machine_form': new_machine_form,
-    })
-    return HttpResponse(template.render(context))
+    return render(request, 'TrackingApp/add_new_machine.html', {'new_machine_form': new_machine_form, })
 
 
 def insert_new_brand(request):
 
-    template = loader.get_template('TrackingApp/add_new_brand.html')
     if request.method == 'POST':
         new_brand_form = NewBrandForm(request.POST)
         if new_brand_form.is_valid():
@@ -75,7 +71,5 @@ def insert_new_brand(request):
             return HttpResponseRedirect('/')
     else:
         new_brand_form = NewBrandForm()
-    context = RequestContext(request, {
-        'new_brand_form': new_brand_form,
-    })
-    return HttpResponse(template.render(context))
+    return render(request, 'TrackingApp/add_new_brand.html', {'new_brand_form': new_brand_form,})
+

@@ -33,10 +33,12 @@ class NewMachineForm(forms.ModelForm):
         )
         self.fields['machine_id'].label = mark_safe('<br /><br />Номер машины')
         self.fields['machine_id'].empty_label = None
+        self.fields['machine_id'].initial = 0
         self.fields['brand_name'].label = mark_safe('<br /><br /><br />Название модели')
         self.fields['brand_name'].empty_label = None
         self.fields['current_carrying_load'].label = mark_safe('<br /><br /><br />Текущий перевозимый вес')
         self.fields['current_carrying_load'].empty_label = None
+        self.fields['current_carrying_load'].initial = 0
 
 
 class NewBrandForm(forms.ModelForm):
@@ -49,6 +51,8 @@ class NewBrandForm(forms.ModelForm):
         super(NewBrandForm, self).__init__(*args, **kwargs)
         self.fields['brand_name'].label = mark_safe('<br /><br />Название модели')
         self.fields['brand_name'].empty_label = None
+        self.fields['brand_name'].initial = " "
         self.fields['max_carrying_capacity'].label = mark_safe('<br /><br /><br />Максимальная загрузка')
         self.fields['max_carrying_capacity'].empty_label = None
+        self.fields['max_carrying_capacity'].initial = 1
 

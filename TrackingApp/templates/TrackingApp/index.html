@@ -8,11 +8,13 @@
 <body>
 {% load static %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ brand_form }}
-    <input type="submit" value="Применить" />
-</form>
+<div align="center" id="layer1">
+    <form method="post">
+        {% csrf_token %}
+        {{ brand_form }}
+        <input type="submit" value="Применить" />
+    </form>
+</div>
 
 <table>
     <caption>
@@ -36,13 +38,15 @@
     {% endfor %}
 </table>
 
-<form action='new_machine/' method="post">
-    <input type="submit" value="Добавить новую машину" />
-</form>
+<div align="center" id="layer2">
+    <form action='new_machine/' >
+        <input type="submit" value="Добавить новую машину" />
+    </form>
 
-<form action='new_brand/' method="post">
-    <input type="submit" value="Добавить новую модель" />
-</form>
+    <form action='new_brand/'>
+        <input type="submit" value="Добавить новую модель" />
+    </form>
+</div>
 
 </body>
 </html>

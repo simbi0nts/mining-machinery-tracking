@@ -5,7 +5,7 @@ body {background-color:#AAAAAA}
 p {color:#222255}
 
 form {
-    display: block;
-    padding: 10px;
-    padding-left: 40px;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
 }
