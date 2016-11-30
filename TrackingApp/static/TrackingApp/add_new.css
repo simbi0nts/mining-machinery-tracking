@@ -28,11 +28,7 @@ td {
   padding: 10px;
   text-align: center;
 }
-form {
-  padding: 10px;
-  display: inline-block;
-  text-align: center;
-}
+
 input {
     display: block;
 }

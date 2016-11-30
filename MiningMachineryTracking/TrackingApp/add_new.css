@@ -1,0 +1,11 @@
+@charset "windows-1251";
+/* CSS Document */
+
+body {background-color:#AAAAAA}
+p {color:#222255}
+
+form {
+    display: block;
+    padding: 10px;
+    padding-left: 40px;
+}
