@@ -13,7 +13,14 @@
     <form method="post">
         {% csrf_token %}
         {{ new_machine_form }}
+        </br></br>
         <input type="submit" value="Применить" />
+        <a href="/">
+        <input type="button" value="Назад" />
+        </a>
+    </form>
+    <form action="/">
+
     </form>
 </div>
 
