@@ -19,7 +19,7 @@ class BrandCharacteristics(models.Model):
 
 @python_2_unicode_compatible
 class CurrentActiveMachines(models.Model):
-    machine_id = models.IntegerField(primary_key=True)
+    machine_id = models.IntegerField(primary_key=True, validators=[MinValueValidator(1)])
     brand_name = models.ForeignKey(BrandCharacteristics,
                                    null=False,
                                    on_delete=models.CASCADE,
