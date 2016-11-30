@@ -24,7 +24,7 @@ class CurrentActiveMachines(models.Model):
                                    null=False,
                                    on_delete=models.CASCADE,
                                    related_name='overload_value')
-    current_carrying_load = models.IntegerField(default=0)
+    current_carrying_load = models.IntegerField(default=0, validators=[MinValueValidator(0)])
 
     def __str__(self):
         return unicode(self.machine_id)
