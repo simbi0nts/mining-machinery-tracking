@@ -1,29 +1,34 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import RequestContext, loader
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from .forms import BrandForm, NewMachineForm, NewBrandForm
 from .models import CurrentActiveMachines, BrandCharacteristics
 from django.db.models import F
 from django.shortcuts import render
+from jinja2 import Environment, PackageLoader
 
 HUNDRED_PERCENT = 100
+env = Environment(loader=PackageLoader('TrackingApp', 'templates'))
 
 
-def index(request):
+def create_filter_for_all_objects():
 
     # TODO: Maybe there is more correct way to define this function in code
     # Adding select option for choosing all active machines from DB
     BrandCharacteristics.objects.get_or_create(
-            brand_id=0,
-            brand_name="Все",
-            max_carrying_capacity=1,
-        )
+        brand_id=0,
+        brand_name="Все",
+        max_carrying_capacity=1,
+    )
 
-    query_results = CurrentActiveMachines.objects.\
+
+def index(request):
+
+    create_filter_for_all_objects()
+    template = env.get_template('TrackingApp/index.html')
+    query_results = CurrentActiveMachines.objects.select_related().\
         annotate(overload_value=F('current_carrying_load') * HUNDRED_PERCENT /
                                 F('brand_name__max_carrying_capacity') - HUNDRED_PERCENT).order_by('machine_id')
-    template = loader.get_template('TrackingApp/index.html')
     brand_form = BrandForm()
     if request.method == 'POST':
         brand_form = BrandForm(request.POST)
@@ -31,10 +36,10 @@ def index(request):
             brand_name = brand_form.cleaned_data['brand_name']
             if brand_name.brand_id:
                 query_results = query_results.filter(brand_name=brand_name)
-    context = RequestContext(request, {
+    context = {
         'query_results': query_results,
         'brand_form': brand_form,
-    })
+    }
     return HttpResponse(template.render(context))
 
 
@@ -72,4 +77,5 @@ def insert_new_brand(request):
     else:
         new_brand_form = NewBrandForm()
     return render(request, 'TrackingApp/add_new_brand.html', {'new_brand_form': new_brand_form,})
+
 

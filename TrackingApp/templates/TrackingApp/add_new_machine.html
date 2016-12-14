@@ -7,11 +7,8 @@
 </head>
 <body>
 
-{% load static %}
-
 <div align="center" id="layer1">
     <form method="post">
-        {% csrf_token %}
         {{ new_machine_form }}
         </br></br>
         <input type="submit" value="Применить" />

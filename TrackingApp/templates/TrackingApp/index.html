@@ -4,41 +4,61 @@
     <meta charset="UTF-8">
     <title>Main Page</title>
     <link rel="stylesheet" type="text/css" href="/static/TrackingApp/index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('#button').click(function(){
+                brand_id = $('#id_brand_name').val();
+                $.ajax({
+                    url:'',
+                    type: 'POST',
+                    data: brand_id,
+                    success: function() {
+                        if (brand_id != 0) {
+                            $('*[class^="id_"]').hide();
+                            $("tr.id_"+brand_id).show();
+                            }
+                        else
+                            $('*[class^="id_"]').show();
+                    }
+                });
+        });
+    });
+    </script>
 </head>
 <body>
-{% load static %}
 
-<div align="center" id="layer1">
-    <form method="post">
-        {% csrf_token %}
+<div align="center" >
+    <form method="post" id="filter-form">
         {{ brand_form }}
-        <input type="submit" value="Применить" />
     </form>
+    <button id="button">Обновить</button>
+    <table id="main-table">
+        <tbody>
+        <caption>
+            Активные машины
+        </caption>
+        <tr id="tr">
+            <th>Бортовой номер</th>
+            <th>Модель</th>
+            <th>Максимальная грузоподъемность</th>
+            <th>Текущий вес</th>
+            <th>Перегрузка,%</th>
+        </tr>
+        {% for item in query_results %}
+        <tr class="id_{{ item.brand_name.brand_id }}">
+            <td>{{ item.machine_id }}</td>
+            <td>{{ item.brand_name }}</td>
+            <td>{{ item.brand_name.max_carrying_capacity }}</td>
+            <td>{{ item.current_carrying_load }}</td>
+            <td>{{ item.overload_value }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 </div>
 
-<table>
-    <caption>
-        Рабочие самосвалы
-    </caption>
-    <tr>
-        <th>Бортовой номер</th>
-        <th>Модель</th>
-        <th>Максимальная грузоподъемность</th>
-        <th>Текущий вес</th>
-        <th>Перегрузка,%</th>
-    </tr>
-    {% for item in query_results %}
-    <tr>
-        <td>{{ item.machine_id }}</td>
-        <td>{{ item.brand_name }}</td>
-        <td>{{ item.brand_name.max_carrying_capacity }}</td>
-        <td>{{ item.current_carrying_load }}</td>
-        <td>{{ item.overload_value }}</td>
-    </tr>
-    {% endfor %}
-</table>
-
-<div align="center" id="layer2">
+<div align="center" id="add-item-button">
     <form action='new_machine/' >
         <input type="submit" value="Добавить новую машину" />
     </form>

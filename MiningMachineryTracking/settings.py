@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2ymp*a79g@$jfgrnp$@d_#f=pb@xri+=u_ao5zv0vc)&0k!vqh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['mining-machinery-tracking.herokuapp.com',
                  '127.0.0.1',
@@ -57,6 +57,12 @@ MIDDLEWARE_CLASSES = [
 ROOT_URLCONF = 'MiningMachineryTracking.urls'
 
 TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.jinja2.Jinja2',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {'environment': 'jinja2.Environment',},
+    },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -135,6 +141,3 @@ STATICFILES_DIRS = (
     os.path.join(STATIC_ROOT,'static/'),
     #'/app/TrackingApp/static'
 )
-
-
-

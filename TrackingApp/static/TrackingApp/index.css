@@ -37,7 +37,7 @@ input {
     display: block;
 }
 tr:nth-child(odd) {
-  background: white;
+  background: #E8E6D1;
 }
 tr:nth-child(even) {
   background: #E8E6D1;
