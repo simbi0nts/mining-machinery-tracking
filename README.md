@@ -1,5 +1,7 @@
 # mining-machinery-tracking
 
+My first serious technical task for my first serious software dev job. It has some fancy design, isn't it?
+
 # Django + PostgreSQL deployed on Heroku
 
 28.11.16
